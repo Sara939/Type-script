@@ -299,12 +299,30 @@
 // }
 
 // console.log(returnstring("sara", "lili","atata","mimi"));
+
 // 31
-function gettexts(...restogtexts){
+// function gettexts(text:string = "end",...restogtexts:string[]):string[]{
+//   restogtexts.push(text);
+//   return restogtexts
+// }
+// console.log(gettexts(undefined, "djff", "fjff", "sjd"))
 
-}
+// 32
+// function getgrades(name:string, grade?:string, p:string = "pass", ...restofgrades:number[]):string{
+//   let avg:number= 0;
+//   restofgrades.forEach(item=>{
+//       avg += item}
+//     )  
+//   return `${name} ${grade? `${grade}`:" "} ${p} ${restofgrades.sort((a,b)=>a-b)} avg of grades is ${avg/restofgrades.length}` 
+// }
 
+// console.log(getgrades("dsdas",undefined,undefined, 10, 100, 80 ));
 
+// 33
+// function getsizes(name: string, discount?:number, color:string= "black",...restsizes:number[]):string{
+//   return `${name} ${discount? `sale is ${discount} %`: ""} ${color} ${restsizes.sort((a,b)=>a-b)}`
+// }
+// console.log(getsizes("zara", undefined,undefined, 34,43,23));
 
 // // 34
 // // class Car{
@@ -440,9 +458,6 @@ function gettexts(...restogtexts){
 // // user1.isconectes= false;
 // console.log(user1.getisconectes)
 
-
-
-
 // // 40
 
 // class Student extends User{
@@ -466,6 +481,186 @@ function gettexts(...restogtexts){
 // let student1= new Student("hdhdy", "lsidj", 23, "sdss344", "11-2","jdsjds@hfg.com");
 // console.log(student1);
 
+// 41
+
+// class Room {
+//   width:number;
+//   heigt:number;
+//   squer:number;
+//   private isWindow:boolean=true;
+//   constructor(w:number, h:number, s:number){
+//     this.heigt=h;
+//     this.width=w;
+//     this.squer=s;
+//   }
+//   get window(){
+//     return this.isWindow;
+//   }
+//   set window(a){
+//     this.isWindow =a;
+//   }
+//   static ifroomObj(text:string, ...roomobj:Room[]):Room{
+//     if(text=="big"){
+//       return roomobj.sort((a,b)=> a.width-b.width)[roomobj.length-1]
+      
+//     }
+//     else{
+//       return roomobj.sort((a,b)=> a.width-b.width)[0]}
+// }
+// }
+
+// let mycar:Room= new Room(54,67,89);
+// let mycar1:Room= new Room(54,67,23);
+// let mycar2:Room= new Room(54,67,54);
+
+// console.log(Room.ifroomObj("big", mycar,mycar1,mycar2));
+
+
+// 42
+// class Kitchen extends Room{
+//   closetnum:number;
+//   constructor(w:number,h:number,s:number,c:number){
+//     super(w,h,s)
+//     this.closetnum=c;
+//   }
+//   returndetails():string{
+//     return `${this.width} ${this.heigt} ${this.closetnum}`
+//   }
+//   ifwindow():string{
+//     return `${this.window? "have window" : "close room"}`
+//   }
+// }
+
+// let mykitchen:Kitchen=new Kitchen (3,4,5,8);
+// let mykitchen1:Kitchen=new Kitchen (3,4,5,8);
+// let mykitchen2:Kitchen=new Kitchen (3,4,5,8);
+// console.log(Kitchen.ifroomObj("small", mykitchen, mykitchen1, mykitchen2));
+
+// 43
+
+// class Livingroom extends Room {
+//   sittingplaces:number;
+//   airdir:number;
+//   constructor(w:number,h:number,s:number,si:number,a:number){
+//     super(w,h,s)
+//     this.sittingplaces=si;
+//     this.airdir=a;
+//   }
+//   getdeatils():string{
+//     return `${this.width} ${this.heigt} ${this.sittingplaces} ${this.airdir}`
+//   }
+//   getairdir(){
+//     if(this.window){
+//       return `have window ${this.airdir}`
+//     }
+//     return `close room`
+//   }
+// }
+
+// let mylv:Livingroom= new Livingroom(2,5,77,7,8)
+// let mylv1:Livingroom= new Livingroom(3,5,87,7,34)
+// let mylv2:Livingroom= new Livingroom(1,5,6,7,8)
+
+// console.log(Livingroom.ifroomObj("big", mylv,mylv1,mylv2));
+
+
+// 44
+
+class Item{
+width:number;
+heigt:number;
+wight:number;
+price:number;
+private isorderd:number;
+constructor(w:number, h:number, wig:number, p:number){
+  this.width=w;
+  this.heigt=h;
+  this.wight=wig;
+  this.price= p;
+}
+get orderd():number{
+  return this.isorderd
+}
+set myorderd(arg:number){
+  this.isorderd= arg;
+}
+static cORe(text:string= "expensive", ...restofitems:Item[]):Item{
+  if(text=="expensive"){
+    return restofitems.sort((a,b)=>a.price-b.price)[restofitems.length-1]
+  }
+  else{
+    return restofitems.sort((a,b)=>a.price-b.price)[0]
+  }
+}
+  deatils():string{
+    return `${this.width} ${this.heigt} ${this.wight} ${this.price} `
+  }
+
+}
+
+let myitem:Item= new Item(43,45,67,89);
+
+myitem.myorderd=10;
+console.log(myitem.orderd);
+
+
+
+// // let myitem:Item= new Item(3,7,98,45)
+// // let myitem2:Item= new Item(3,7,98,21)
+// // let myitem3:Item= new Item(3,7,98,28)
+
+// // console.log(Item.cORe(undefined,myitem,myitem2,myitem3));
+
+// // 45
+// class Computer extends Item {
+//   numoforders:number|undefined;
+//   rezulotion:number;
+//   constructor(w:number, h:number, wig:number, p:number, r:number,n?:number|undefined){
+//     super(w,h,wig,p)
+//     this.numoforders=n;
+//     this.rezulotion=r;
+//   }
+//   getdeatils():string{
+//     return `${this.width} ${this.heigt} ${this.wight} ${this.price} ${this.numoforders} ${this.rezulotion} `
+//   }
+
+//   iforders():string{
+//     if (this.orderd){
+//      return `${this.orderd} orderd`
+//     }
+//     else{
+//       return `need to order`
+//     }
+//   }
+// }
+// let mycomputer1:Computer= new Computer(54,88,98,2,87,undefined)
+// let mycomputer2:Computer= new Computer(54,88,98,38,87,65)
+// let mycomputer3:Computer= new Computer(54,88,98,54,87,97)
+
+// console.log(Computer.cORe("small",mycomputer1,mycomputer2,mycomputer3));
+// console.log(mycomputer1.getdeatils())
+
+// 46
+
+class Compscreen extends Item {
+vat:number;
+constructor(w:number, h:number, wig:number, p:number,v:number){
+  super(w,h,wig,p)
+  this.vat=v;
+}
+
+mydetails():string{
+  return `${super.deatils()} ${this.vat}`
+}
+
+}
+
+
+
+// interface//////////////////////
+
+// 50
+
 // interface IUser{
 //   firstname:string;
 //   lastname:string;
@@ -488,6 +683,8 @@ function gettexts(...restogtexts){
 // let mypersone:Persone= new Persone (165, "Israel",myuser);
 
 
+// 51
+
 // interface IVihecale{
 //   brand:string;
 //   doorsnum:number;
@@ -498,30 +695,46 @@ function gettexts(...restogtexts){
 //   city:string;
 //   country:string;
 //   storename:string;
-//   car: IVihecale[];
-//   constructor(city:string, country:string,storename:string,car:IVihecale[]){
+//   carsarray: IVihecale[]=[];
+//   constructor(city:string, country:string,storename:string, car:IVihecale[]){
 //     this.city=city;
 //     this.country=country;
 //     this.storename=storename;
-//     this.car=car;
+//     this.carsarray=car;
 //   }
 // }
 
 // let mycar:IVihecale= {brand:"suzuky", doorsnum:5, weelsnum:4};
-// let mycarstore:Carsstore= new Carsstore("netanya", "israel", "carstore", mycar);
+// let mycar2:IVihecale= {brand:"suzuky", doorsnum:3, weelsnum:9}
+// let mycarstore:Carsstore= new Carsstore("netanya", "israel", "carstore", [mycar, mycar2]);
 
 // class Garage{
 //   name:string;
 //   owner:string;
 //   iszadik:boolean;
-//   carsarr: string[];
-//   constructor(name:string, owner:string,iszadik:boolean, carsarr:string[]){
+//   carsarray: IVihecale[]=[];
+//   constructor(name:string, owner:string,iszadik:boolean, car:IVihecale[]){
 //     this.name=name;
 //     this.owner=owner;
 //     this.iszadik=iszadik;
-//     this.carsarr=carsarr;
+//     this.carsarray=car;
 //   }
 // }
+
+
+// let mygarage:Garage= new Garage("MYCAR", "SARA", true,[{brand:"suzuky", doorsnum:5, weelsnum:4},
+//                                                        {brand:"suzuky", doorsnum:5, weelsnum:4}]);
+
+// genric typs///////////////////////////////////
+
+// 52
+// function identity<T>(one:T, two:number):T{
+  
+//   console.log(one
+//     );
+  
+// }
+
 
 
 
